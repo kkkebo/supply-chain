@@ -1,10 +1,12 @@
 from datetime import datetime
 
-from sqlalchemy import Column, DateTime
-from sqlalchemy.orm import declarative_mixin
+from sqlalchemy import Column, DateTime, func
+from sqlalchemy.orm import declarative_mixin, relationship
 
 
 @declarative_mixin
 class Timestamp:
-    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
-    modified_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    created_at = Column(DateTime, server_default=func.now(), nullable=False)
+    created_by = relationship('User')
+    modified_at = Column(DateTime, server_default=func.now(), server_onupdate=func.now(), onupdate=datetime.now, nullable=False)
+    modified_by = relationship('User')
