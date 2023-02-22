@@ -9,10 +9,10 @@ engine = create_engine(
 )
 
 Session = sessionmaker(
-    engine,
+    bind=engine,
     autocommit=False,
     autoflush=False,
-    future=True,
+    future=True
 )
 
 
