@@ -1,11 +1,13 @@
-uvicorn
-fastapi
-sqlalchemy
+uvicorn~=0.20.0
+fastapi~=0.92.0
+sqlalchemy~=2.0.4
 python-dotenv
 psycopg2
-alembic
+alembic~=1.9.4
 passlib
 python-jose
 python-multipart
 
 
+
+pydantic~=1.10.5
